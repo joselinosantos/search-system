@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>KiBusca</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <style type="text/css">
+  	body {
+  		background: none;
+  	}
+  	.container-fluid {
+  		padding: 30px;
+  	}
+  	.resultados {
+  		padding-left: 30px;
+  	}
+  	.resultados p {
+  		color: #555;
+  	 }
+  	.resultados a {
+  		color: blue;
+  		text-align: left;
+  	}
+
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+   <form action="" class="form-inline" id="frm_busca" action="{% url 'paginas' %}" method="post">
+   	{% csrf_token %}
+   	<div>
+  		<a href=""><img src="{% static 'img/logo.jpg' %}" width="80"></a>
+  	</div>
+    <div class="form-group">
+		<input type="search" class="form-control" id="tf_busca" name="tf_busca" placeholder="Pesquisar...">
+      <button type="submit" class="btn btn-primary">Buscar</button>
+      </div>
+      </form>
+    </div>
+  <nav class="navbar navbar-expand-sm bg-light navbar-light">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="">Todas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Imagens</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Vídeos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Mapas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Notícias</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="#">Livros</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="#">Filmes</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="#">Shopping</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Filtros</a>
+      </li>
+    </ul>
+  </nav>
+ 
+  <section class="resultados">
+  	<p>Aproximadamente 9.390.000.000 resultados (0,64 segundos)</p> 
+  	 {% for url in paginas %}
+  	 <p>{{ url.url }}</p>
+  	 <a href="{{ url.url }}"> Título da url</a>
+  	 <p>Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking ...</p>
+  	 {% endfor %}
+  <section>
+
+<footer>
+  <p>Brasil 2020</p>
+  <p>Parque Estrela Dalva VI, Novo Gama - GO - Do seu endereço IP</p>
+</footer>
+</body>
+</html>

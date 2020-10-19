@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>KiBusca</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+	<div class="container-fluid" style="height: 465px">
+		<header>
+			<nav>
+				<ul>
+					<li><a href="" title="Web">Web</a></li>
+					<li><a href="" title="Imagens">Imagens</a></li>
+					<li><a href="" title="Videos">Videos</a></li>
+					<li><a href="" title="Mapas">Mapas</a></li>
+					<li><a href="" title="News">News</a></li>
+					<li><a href="" title="Login"><b>Login</b></a></li>
+					<li><a href="" title="Configurações"><b>Configurações</b></a></li>
+				</ul>
+			</nav>
+		</header>
+		<div id="corpo_form">
+			<form name="BuscaForm" action="{% url 'paginas' %}" method="post">
+				{% csrf_token %}
+				<input type="search" id="tf_busca" name="tf_busca" placeholder="Pesquisar..." maxlength="150" title="Pesquise o que quiser">
+				<a href="" title="Encontre resultados ainda mais relevantes">Estou com sorte?</a>
+				<a href="" title="Pesquise ainda mais fundo"><strong>Deep search</strong></a>
+			</form>
+		</div>
+	</div>
+	<footer>
+		<p>KiBusca 2020 @ Todos os direitos reservados</p>
+	</footer>
+</body>
+</html>

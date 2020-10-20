@@ -3,11 +3,10 @@
 	padding:0px;
 	list-style-type: none;
 }
-
 body {
 	background-image: url(../img/back.jpg);
 	background-size: 100%;
-	font-family: arial;
+	font-family: Arial, Helvetica, sans-serif;
 	background-repeat: no-repeat;
 	color: #fff;
 }
@@ -35,19 +34,16 @@ input {
 	background-color: rgba(255,255,255,0.01);
 	outline: none;
 	color: #fff;
-
 }
+
+/* CAIXA DE BUSCA */
 div#corpo_form {
 	width: 420px;
 	margin: 330px auto 0px auto;
 }
-
-
-/* CAIXA DE BUSCA */
 .corpo_form .search-container {
 	float: right;
 }
-
 .corpo_form input[type=text], .corpo_form .search-container button  {
 	padding: 10px;
 	margin-top: 4px;
@@ -59,7 +55,6 @@ div#corpo_form {
 	color: #fff;
 	border-right: none;
 }
-
 .corpo_form .search-container button {
 	font-size: 17px;
 	cursor: pointer;
@@ -68,10 +63,15 @@ div#corpo_form {
 	-webkit-transition-duration: 0.4s; /* Safari */
 	transition-duration: 0.4s;
 }
-
 .corpo_form .search-container button:hover {
 	background: #fff;
 	color: #0984e3;
+}
+input[type=submit] {
+	background-color: #41b8f4;
+	border:none;
+	width: 395px;
+	cursor: pointer;
 }
 
 a {
@@ -82,12 +82,6 @@ a {
 }
 a:hover {
 	text-decoration: underline;
-}
-input[type=submit] {
-	background-color: #41b8f4;
-	border:none;
-	width: 395px;
-	cursor: pointer;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -117,7 +111,6 @@ div.msg_erro {
 	padding: 10px;
 	border: 1px solid rgb(165, 42, 42);
 }
-
 footer {
 	width: 100%;
 	padding: 30px;

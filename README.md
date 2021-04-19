@@ -1,5 +1,5 @@
-# Sistema de busca similar ao Google
-Desenvolvido com Python, Django e dados salvos no MySQL.
+# Python Webcrowler
+Developerd with Python, Django and saved data in MySQL
 
 ## 1. Instale todos os software necessários:
 No Linux

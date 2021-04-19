@@ -28,6 +28,9 @@
   		color: blue;
   		text-align: left;
   	}
+    h1 {
+      color: gray;
+    }
 
   </style>
 </head>
@@ -77,11 +80,12 @@
   </nav>
  
   <section class="resultados">
-  	<p>Aproximadamente {{ "9.390.000.000" }} resultados (0,64 segundos)</p> 
+    <h1></h1>
+  	<p>Aproximadamente {{ total }} resultados (0,64 segundos)</p> 
   	 {% for url in paginas %}
   	 <p>{{ url.url }}</p>
-  	 <a href="{{ url.url }}"> {{ "Título da url" }}</a>
-  	 <p>Breve descrição da página web... Breve descrição da página web</p>
+  	 <a href="{{ url.url }}"> {{ titulos_web }}</a>
+  	 <p> {{ descricao }}</p>
   	 {% endfor %}
   <section>
 

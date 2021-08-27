@@ -1,4 +1,4 @@
-# Python Webcrowler
+# Python Webcrawler
 Developed in Python, Django and saved data in MySQL
 
 ## 1. Instale todos os software necessários:

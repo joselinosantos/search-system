@@ -1,5 +1,5 @@
 """
-WSGI config for sistema_busca project.
+WSGI config for search-system project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sistema_busca.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'search-system.settings')
 
 application = get_wsgi_application()

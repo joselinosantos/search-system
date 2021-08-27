@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class BuscaConfig(AppConfig):
-    name = 'busca'
+class SearchConfig(AppConfig):
+    name = 'search'

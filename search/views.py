@@ -33,4 +33,4 @@ def pages(request):
 
 		# Chama a funcao dados_pagina
 		#titulos_web = dados_pagina(urls)
-		return render(request, 'pages.html', {'pages': pages, 'total':total_pag})
+		return render(request, 'pages.html', {'search':search, 'pages': pages, 'total':total_pag})

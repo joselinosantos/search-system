@@ -2,7 +2,7 @@
 Developed in Python, Django and saved data in MySQL<br>
 Interface in Bootstrap
 
-![Search](https://github.com/joselinosantosti/search-system/blob/master/search/busca.png)
+![Search](https://github.com/joselinosantosti/search-system/blob/master/search/static/img/busca.png)
 
 ## 1. Install all softwares:
 No Linux

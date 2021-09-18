@@ -73,7 +73,7 @@ def pages(request):
 Follow the post:<br>
 https://www.treinaweb.com.br/blog/mapeando-banco-de-dados-existente-com-django/
 
-## 6. Web Interface
+## 8. Web Interface
 Create templates folder and add pages.html file. Add following content:<br>
 ** Form for search
 <form action="" class="form-inline" id="frm_busca" action="{% url 'pages' %}" method="post">

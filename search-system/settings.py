@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'search-system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'indice',
+        'NAME': 'busca',
 		'USER': 'root',
 		'PASSWORD': 'admin',
 		'HOST': '127.0.0.1', # Or server IP

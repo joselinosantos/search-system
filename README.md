@@ -7,6 +7,10 @@ Interface in Bootstrap
 ## 1. Install all softwares:
 No Linux
 `apt install mysql-server mysql-client python3 -y`
+`sudo apt-get install python3-dev default-libmysqlclient-dev build-essential`
+Or follow the link for others OS<br>
+https://github.com/PyMySQL/mysqlclient/blob/main/README.md
+
 `pip install MySQL-python`
 `pip install MySQL-python-connector`
 `pip install django`
@@ -66,7 +70,8 @@ def pages(request):
 ```
 
 ## 7. Mapping MySQL database
-...
+Follow the post:<br>
+https://www.treinaweb.com.br/blog/mapeando-banco-de-dados-existente-com-django/
 
 ## 6. Web Interface
 Create templates folder and add pages.html file. Add following content:<br>

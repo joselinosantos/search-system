@@ -3,12 +3,11 @@ from .models import Urls
 import urllib3
 from bs4 import BeautifulSoup
 
-# Todas as views aqui
 def index(request):
 	return render(request, 'index.html')
 
 def dados_pagina(urls):
-	url = 'http://www.iaexpert.com.br'
+	url = 'http://www.wikipedia.com.br'
 	http = urllib3.PoolManager()
 	titulos = []
 	
@@ -20,17 +19,17 @@ def dados_pagina(urls):
 		titulos.append(tit)
 	return titulos
 
-def paginas(request):
+def pages(request):
 	if request.method == "POST":
 		tit = "Titulo da pagina"
 		desc = "Breve descricao da página web"
-		pesquisa = request.POST.get('tf_busca')
-		paginas = Urls.objects.filter(url__contains=pesquisa).order_by('url')
-		total_pag = len(paginas)
+		search = request.POST.get('tf_busca')
+		pages = Urls.objects.filter(url__contains=search).order_by('url')
+		total_pag = len(pages)
 
-		# Lista de urls em formato str
-		urls = [str(url.url) for url in paginas]
+		# Url list int str format
+		urls = [str(url.url) for url in pages]
 
 		# Chama a funcao dados_pagina
 		titulos_web = dados_pagina(urls)
-		return render(request, 'paginas.html', {'paginas': paginas, 'titulos_web':titulos_web, 'titulo':tit, 'descricao':desc, 'total':total_pag})
+		return render(request, 'pages.html', {'pages': pages, 'titulos_web':titulos_web, 'titulo':tit, 'descricao':desc, 'total':total_pag})

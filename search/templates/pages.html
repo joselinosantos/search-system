@@ -36,7 +36,7 @@
 </head>
 <body>
   <div class="container-fluid">
-   <form action="" class="form-inline" id="frm_busca" action="{% url 'paginas' %}" method="post">
+   <form action="" class="form-inline" id="frm_busca" action="{% url 'pages' %}" method="post">
    	{% csrf_token %}
    	<div>
   		<a href=""><img src="{% static 'img/logo.jpg' %}" width="80"></a>
@@ -91,7 +91,7 @@
 
 <footer>
   <p>Brasil {% block title %}{% endblock %}
-{{ "2020" }}</p>
+    {{ "2021" }}</p>
   <p>Brasília, DF - Do seu endereço IP</p>
 </footer>
 </body>

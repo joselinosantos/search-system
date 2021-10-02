@@ -7,7 +7,7 @@ Interface in Bootstrap
 ## 1. Install all softwares:
 No Linux
 `apt install mysql-server mysql-client python3 -y`
-`sudo apt-get install python3-dev default-libmysqlclient-dev build-essential`
+`sudo apt-get install python3-dev default-lib mysqlclient-dev build-essential`
 Or follow the link for others OS<br>
 https://github.com/PyMySQL/mysqlclient/blob/main/README.md
 

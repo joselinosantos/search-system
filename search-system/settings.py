@@ -81,7 +81,7 @@ DATABASES = {
 		'USER': 'root',
 		'PASSWORD': 'admin',
 		'HOST': '127.0.0.1', # Or server IP
-		'POST': '3306',
+		'PORT': '3306',
     }
 }
 

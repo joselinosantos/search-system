@@ -25,7 +25,7 @@ def dados_pagina(urls):
 def pages(request):
 	if request.method == "POST":
 		search = request.POST.get('tf_busca')
-		pages = Urls.objects.filter(url__contains=search).order_by('url')
+		pages = Urls.objects.filter(url__icontains=search).order_by('url')
 		total_pag = len(pages)
 
 		# Url list int str format

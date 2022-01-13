@@ -28,9 +28,9 @@
 			</nav>
 		</header>
 		<div id="corpo_form">
-			<form name="BuscaForm" action="{% url 'pages' %}" method="post">
+			<form name="BuscaForm" action="{% url 'pages' %}">
 				{% csrf_token %}
-				<input type="search" id="tf_busca" name="tf_busca" placeholder="Pesquisar..." maxlength="150" title="Pesquise o que quiser">
+				<input type="search" id="busca" name="busca" placeholder="Pesquisar..." maxlength="150" title="Pesquise o que quiser">
 				<a href="" title="Encontre resultados ainda mais relevantes">Estou com sorte?</a>
 				<a href="" title="Pesquise ainda mais fundo"><strong>Deep search</strong></a>
 			</form>

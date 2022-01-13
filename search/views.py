@@ -1,36 +1,21 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView, ListView
 from .models import Urls
-import urllib3
-from bs4 import BeautifulSoup
 
-def index(request):
-	return render(request, 'index.html')
+class IndexView(TemplateView):
+	template_name = 'index.html'
 
-'''
-#Dados da url em cada resultado
-def dados_pagina(urls):
-	url = 'http://www.wikipedia.com.br'
-	http = urllib3.PoolManager()
-	titulos = []
+class SearchPagesView(ListView):
+	model = Urls
+	template_name = 'pages.html'
+	paginate_by = 10
+	context_object_name = 'pages'
 	
-	for u in urls:
-		titulos.append(u)
-		pagina = http.request('GET', u)
-		sopa = BeautifulSoup(pagina.data, "lxml")
-		tit = str(sopa.find_all('title')).replace('<title>','')
-		titulos.append(tit)
-	return titulos
-'''
-
-def pages(request):
-	if request.method == "POST":
-		search = request.POST.get('tf_busca')
-		pages = Urls.objects.filter(url__icontains=search).order_by('url')
-		total_pag = len(pages)
-
-		# Url list int str format
-		#urls = [str(url.url) for url in pages]
-
-		# Chama a funcao dados_pagina
-		#titulos_web = dados_pagina(urls)
-		return render(request, 'pages.html', {'search':search, 'pages': pages, 'total':total_pag})
+	def get_queryset(self):
+		search = self.request.GET.get('busca')
+		if search:
+			qs = super().get_queryset()
+			qs = qs.order_by('url').filter(url__icontains=search)
+			return qs
+		else:
+			print('Nenhum resultado encontrado')

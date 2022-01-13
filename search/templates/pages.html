@@ -36,13 +36,13 @@
 </head>
 <body>
   <div class="container-fluid">
-   <form action="" class="form-inline" id="frm_busca" action="{% url 'pages' %}" method="post">
+   <form class="form-inline" id="frm_busca" action="{% url 'pages' %}">
    	{% csrf_token %}
    	<div>
   		<a href=""><img src="{% static 'img/logo.jpg' %}" width="80"></a>
   	</div>
     <div class="form-group">
-		<input type="search" class="form-control" id="tf_busca" name="tf_busca" value="{{ search }}" placeholder="Pesquisar...">
+		<input type="search" class="form-control" id="busca" name="busca" value="{{ request.GET.busca }}" placeholder="Pesquisar...">
       <button type="submit" class="btn btn-primary">Buscar</button>
       </div>
       </form>
@@ -88,6 +88,7 @@
 
   	 <p> Breve Descrição...</p>
   	 {% endfor %}
+     
   <section>
 
 <footer>

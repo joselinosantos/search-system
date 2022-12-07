@@ -4,11 +4,11 @@ from .models import Urls
 class IndexView(TemplateView):
 	template_name = 'index.html'
 
-class SearchPagesView(ListView):
+class ResultsView(ListView):
 	model = Urls
-	template_name = 'pages.html'
+	template_name = 'results.html'
 	paginate_by = 10
-	context_object_name = 'pages'
+	context_object_name = 'results'
 	
 	def get_queryset(self):
 		search = self.request.GET.get('busca')

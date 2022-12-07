@@ -23,16 +23,16 @@
 					  <a class="nav-link" href="#" title="Shopping">Shopping</a>
 					</li>
 					<li class="nav-item">
-					  <a class="nav-link" href="#" title="News">News</a>
+					  <a class="nav-link" href="#" title="News">Notícias</a>
 					</li>
 				  </ul>
 				</div>
 			</nav>
 		</header>
 		<div class="area-search">
-			<form action="{% url 'pages' %}">
+			<form action="{% url 'results' %}">
 				{% csrf_token %}
-				<input type="search" class="form-control p-3 shadow-none text-white" id="busca" name="busca" placeholder="Pesquisar..." maxlength="150" title="Pesquise o que quiser">
+				<input type="search" class="form-control p-3 shadow-none text-white" name="busca" placeholder="Pesquisar..." maxlength="150" title="Pesquise o que quiser">
 			</form>
 		</div>
 	</section>

@@ -9,6 +9,7 @@ body {
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* Search Homepage */
 .area-search {
 	width: 40em;
 	margin: auto;
@@ -29,6 +30,31 @@ body {
 	color: #fff !important;
 }
 
+.results {
+	background: #FFF;
+}
+
+/* Search Results page*/
+.area-search-results .input-group {
+	width: 30em;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	border-radius: 30px;
+}
+
+.area-search-results input {
+	border: 1px solid transparent;
+	background: none;
+}
+
+.area-search-results input.form-control:focus {
+	border: 1px solid transparent;
+	border-radius: 30px;
+}
+
+.area-search-results .btn {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
 input.form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 	color: #fff;
 }
@@ -40,6 +66,23 @@ input.form-control:-ms-input-placeholder { /* IE 10+ */
 }
 input.form-control:-moz-placeholder { /* Firefox 18- */
 	color: #fff;
+}
+
+.area-search-results input.form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: rgba(0, 0, 0, 0.5);
+}
+.area-search-results input.form-control::-moz-placeholder { /* Firefox 19+ */
+	color: rgba(0, 0, 0, 0.5);
+}
+.area-search-results input.form-control:-ms-input-placeholder { /* IE 10+ */
+	color: rgba(0, 0, 0, 0.5);
+}
+.area-search-results input.form-control:-moz-placeholder { /* Firefox 18- */
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.navbar-results .nav-link {
+	text-shadow: none;
 }
 
 footer {

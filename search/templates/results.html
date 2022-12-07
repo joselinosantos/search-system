@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="results">
+    <header class="border-bottom pt-4">
+      <div class="container area-search-results">
+        <form class="form-inline" action="{% url 'results' %}">
+          {% csrf_token %}
+          <a href="">
+            <img src="{% static 'img/logo.jpg' %}" width="80">
+          </a>
+          <div class="input-group ml-4">
+            <input type="search" class="form-control shadow-none" maxlength="150" value="{{ request.GET.busca }}" placeholder="Procure o que quiser...">
+            <div class="input-group-append">
+              <button type="submit" class="btn input-group-text bg-pink rounded-circle"><i
+                  class="fa fa-search text-white"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="bg-light mt-3">
+        <nav class="container navbar navbar-results navbar-expand-sm navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="">Todas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Imagens</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Vídeos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Shopping</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Notícias</a>
+            </li> 
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="container list-results pt-3">
+      {% comment %} <p>Aproximadamente {{ total }} resultados (0,64 segundos)</p>  {% endcomment %}
+      {% if results %}
+        {% for url in results %}
+          <div class="result">
+            <p>{{ url.url }}</p>
+            <h4><a href="{{ url.url }}"> Titulo da página</a></h4>
+            <p> Breve Descrição...</p>
+          </div>
+
+          {% if is_paginated %}
+          <div class="pagination">
+              <ul class="pagination">
+                  {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1">&laquo;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&lsaquo;</a>
+                    </li>
+                  {% endif %}
+  
+                  {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                      <li class="page-item active">
+                          <a class="page-link bg-dark" href="?page={{ num }}">{{ num }}</a>
+                      </li>
+                    {% else %}
+                      <li class="page-item">
+                          <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+  
+                  {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">&rsaquo;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                    </li>
+                {% endif %}
+              </ul>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <p class="lead text-center">Nenhum resultado encontrado para a busca {{ request.GET.busca }}</p>
+      {% endif %}
+      </section>
+  </div>
+{% endblock %}

@@ -1,30 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<div class="container-fluid" style="height: 465px">
+	<section class="container-fluid">
 		<header>
-			<nav>
-				<ul>
-					<li><a href="" title="Web">Web</a></li>
-					<li><a href="" title="Imagens">Imagens</a></li>
-					<li><a href="" title="Videos">Videos</a></li>
-					<li><a href="" title="Mapas">Mapas</a></li>
-					<li><a href="" title="News">News</a></li>
-					<li><a href="" title="Login"><b>Login</b></a></li>
-					<li><a href="" title="Configurações"><b>Configurações</b></a></li>
-				</ul>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<button class="navbar-toggler" type="button" data-toggle="collapse">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+			  
+				<div class="collapse navbar-collapse">
+				  <ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+					  <a class="nav-link" href="#" title="Web">Web</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link" href="#" title="Imagens">Imagens</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link" href="#" title="Videos">Videos</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link" href="#" title="Shopping">Shopping</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link" href="#" title="News">News</a>
+					</li>
+				  </ul>
+				</div>
 			</nav>
 		</header>
-		<div id="corpo_form">
-			<form name="BuscaForm" action="{% url 'pages' %}">
+		<div class="area-search">
+			<form action="{% url 'pages' %}">
 				{% csrf_token %}
-				<input type="search" id="busca" name="busca" placeholder="Pesquisar..." maxlength="150" title="Pesquise o que quiser">
-				<a href="" title="Encontre resultados ainda mais relevantes">Estou com sorte?</a>
-				<a href="" title="Pesquise ainda mais fundo"><strong>Deep search</strong></a>
+				<input type="search" class="form-control p-3 shadow-none text-white" id="busca" name="busca" placeholder="Pesquisar..." maxlength="150" title="Pesquise o que quiser">
 			</form>
 		</div>
-	</div>
-	<footer>
-		<p>KiBusca 2021 @ Todos os direitos reservados</p>
-	</footer>
+	</section>
 {% endblock %}

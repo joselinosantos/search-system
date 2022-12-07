@@ -1,18 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-	<title>KiBusca</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
 	<div class="container-fluid" style="height: 465px">
 		<header>
 			<nav>
@@ -39,5 +27,4 @@
 	<footer>
 		<p>KiBusca 2021 @ Todos os direitos reservados</p>
 	</footer>
-</body>
-</html>
+{% endblock %}

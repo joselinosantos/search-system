@@ -1,99 +1,24 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>KiBusca</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-  <style type="text/css">
-  	body {
-  		background: none;
-  	}
-  	.container-fluid {
-  		padding: 30px;
-  	}
-  	.resultados {
-  		padding-left: 30px;
-  	}
-  	.resultados p {
-  		color: #555;
-  	 }
-  	.resultados a {
-  		color: blue;
-  		text-align: left;
-  	}
-    h1 {
-      color: gray;
-    }
+{% block content %}
+<div class="pages container-fluid bg-light">
+  {% include 'header.html' %}
 
-  </style>
-</head>
-<body>
-  <div class="container-fluid">
-   <form action="" class="form-inline" id="frm_busca" action="{% url 'pages' %}" method="post">
-   	{% csrf_token %}
-   	<div>
-  		<a href=""><img src="{% static 'img/logo.jpg' %}" width="80"></a>
-  	</div>
-    <div class="form-group">
-		<input type="search" class="form-control" id="tf_busca" name="tf_busca" value="{{ search }}" placeholder="Pesquisar...">
-      <button type="submit" class="btn btn-primary">Buscar</button>
-      </div>
-      </form>
-    </div>
-  <nav class="navbar navbar-expand-sm bg-light navbar-light">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="">Todas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Imagens</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Vídeos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Mapas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Notícias</a>
-      </li> 
-      <li class="nav-item">
-        <a class="nav-link" href="#">Livros</a>
-      </li> 
-      <li class="nav-item">
-        <a class="nav-link" href="#">Filmes</a>
-      </li> 
-      <li class="nav-item">
-        <a class="nav-link" href="#">Shopping</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Filtros</a>
-      </li>
-    </ul>
-  </nav>
- 
-  <section class="resultados">
-    <h1></h1>
-  	<p>Aproximadamente {{ total }} resultados (0,64 segundos)</p> 
-  	 {% for url in pages %}
-     <a href="{{ url.url }}"> Titulo da página</a>
-  	 <p>{{ url.url }}</p>
+  <section class="results mt-3 ml-4 text-left">
 
-  	 <p> Breve Descrição...</p>
-  	 {% endfor %}
-  <section>
+    {% if pages %}
+      {% for url in pages %}
+        <p class="lead">Aproximadamente {{ total }} resultado{% if total > 1 %}s{% endif %} em (0,64 segundos)</p>
 
-<footer>
-  <p>Brasil {% block title %}{% endblock %}
-    {{ "2021" }}</p>
-  <p>Brasília, DF - Do seu endereço IP</p>
-</footer>
-</body>
-</html>
+        <a href="{{ url.url }}" class="nav-link  p-0 text-primary"> Titulo da página</a>
+        <p>{{ url.url }}</p>
+        <p> Breve Descrição...</p>
+      {% endfor %}
+    {% else %}
+      <p class="lead">Nenhum resultado encontrado. Por favor, faça uma nova busca</p>
+    {% endif %}
+
+  </section>
+</div>
+{% endblock content %}

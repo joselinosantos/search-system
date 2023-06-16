@@ -2,9 +2,12 @@ from django.shortcuts import render
 from .models import Urls
 import urllib3
 from bs4 import BeautifulSoup
+import datetime
+
+YEAR = datetime.date.today().year
 
 def index(request):
-	return render(request, 'index.html')
+	return render(request, 'index.html', {'year': YEAR})
 
 '''
 #Dados da url em cada resultado
@@ -24,7 +27,7 @@ def dados_pagina(urls):
 
 def pages(request):
 	if request.method == "POST":
-		search = request.POST.get('tf_busca')
+		search = request.POST.get('input-busca')
 		pages = Urls.objects.filter(url__icontains=search).order_by('url')
 		total_pag = len(pages)
 
@@ -33,4 +36,4 @@ def pages(request):
 
 		# Chama a funcao dados_pagina
 		#titulos_web = dados_pagina(urls)
-		return render(request, 'pages.html', {'search':search, 'pages': pages, 'total':total_pag})
+		return render(request, 'pages.html', {'search':search, 'pages': pages, 'total':total_pag, 'year':YEAR})

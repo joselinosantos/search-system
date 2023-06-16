@@ -4,6 +4,8 @@
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `urls` (
   `idurl` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `meta` VARCHAR(60) NULL,
+  `descricao` VARCHAR(200) NULL,
   `url` VARCHAR(2000) NULL DEFAULT NULL);
 
 

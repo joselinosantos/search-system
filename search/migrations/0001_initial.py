@@ -193,7 +193,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='PageRank',
             fields=[
-                ('idurl', models.OneToOneField(db_column='idurl', on_delete=django.db.models.deletion.DO_NOTHING, primary_key=True, serialize=False, to='busca.Urls')),
+                ('idurl', models.OneToOneField(db_column='idurl', on_delete=django.db.models.deletion.DO_NOTHING, primary_key=True, serialize=False, to='search.Urls')),
                 ('nota', models.FloatField()),
             ],
             options={

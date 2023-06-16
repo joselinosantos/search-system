@@ -58,10 +58,12 @@ class UrlPalavra(models.Model):
 class Urls(models.Model):
     idurl = models.AutoField(primary_key=True)
     url = models.CharField(max_length=2000, blank=True, null=True)
+    descricao = models.CharField(max_length=200, blank=True, null=True)
+    meta = models.CharField(max_length=60, blank=True, null=True)
 
     def __str__(self):
-    	return self.url
-
+        return self.url
+        
     class Meta:
-        managed = False
+        managed = True
         db_table = 'urls'
